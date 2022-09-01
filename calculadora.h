@@ -15,23 +15,23 @@ class Display{
 
 };
 
-class CPU{
-
-
-
-};
-
 class Key{
 
-    Digit key0=ZERO, key1=ONE, key2=TWO, key3=THREE, key4=FOUR, key5=FIVE, key6=SIX, key7=SEVEN, key8=EIGHT, key9=NINE;
-    Ops add=add, sub=SUB, div=DIV, mult=MULT, sqr=SQRT, percentage=PERCENTAGE;
-    Control clc=CLEAR, equal=EQUAL, reset=RESET;
-    Signal pos=POSITIVE, neg=NEGATIVE;
-
+    Digit key0, key1, key2, key3, key4, key5, key6, key7, key8, key9;
+    Ops add, sub, div, mult, sqrt, perc;
+    Control clc, equal, reset;
+    Signal pos, neg;
 };
 
 class Keyboard{
 
-    Key* key[50];
+    Key* key[21];
+
+};
+
+class CPU{
+
+    Key* key;
+    Keyboard* keyboard;
 
 };

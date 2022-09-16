@@ -3,17 +3,56 @@
 #include <string>
 #include <stdio.h>
 #include "calculator.hpp"
-using namespace std;
+#include "CPUJoaoPedro.hpp"
+#include "DisplayJoaoPedro.hpp"
+
+void testCpu(CPU& cpu){
+    cout << "Testing CPU...\n";
+    cpu.receiveControl(ON_CLEAR_ERROR);
+    cpu.receiveDigit(ONE);
+    cpu.receiveDigit(TWO);
+    cpu.receiveDigit(THREE);
+    cpu.receiveOperation(ADD);
+    cpu.receiveDigit(FOUR);
+    cpu.receiveDigit(FIVE);
+    cpu.receiveDigit(SIX);
+    cpu.receiveOperation(EQUAL);
+}
+
+void testDisplay(Display& display){
+    std::cout << "Testing DISPLAY...\n";
+    display.setSignal(NEGATIVE);
+    display.addDigit(ZERO);
+    display.clear();
+    display.addDigit(ZERO);
+    display.addDigit(ZERO);
+    display.addDigit(ONE);
+    display.addDigit(TWO);
+    display.addDigit(THREE);
+    display.addDigit(FOUR);
+    display.addDigit(FIVE);
+    display.addDigit(ZERO);
+    display.addDigit(ONE);
+}
+
 
 int main (){
-    Display d1;
+    /* Fase de criação */
+    /* Instancie suas implementações aqui */
+    DisplayJoaoPedro d1;
+    CPUJoaoPedro c1;
 
-    d1.addDigit(ONE);
-    d1.addDigit(ZERO);
-    d1.addOps(ADD);
-    d1.addControl(RESET);
-//    d1.setSignal(NEGATIVE);
-//    d1.clear();
+    /* Fase de construção/ligação */
+    c1.setDisplay(d1);
+
+
+//    d1.addDigit(ONE);
+//    d1.addDigit(ZERO);
+//    d1.addOps(PERCENTAGE);
+//    d1.addDigit(ONE);
+//    d1.addDigit(ZERO);
+//    d1.addControl(EQUAL);
+
 
 
     return 0;

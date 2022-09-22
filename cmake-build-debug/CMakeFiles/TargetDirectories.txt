@@ -1,3 +1,0 @@
-C:/Users/crisc/Desktop/JP/UTFPR/2022-1/APO/calculadora/cmake-build-debug/CMakeFiles/calculadora.dir
-C:/Users/crisc/Desktop/JP/UTFPR/2022-1/APO/calculadora/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/crisc/Desktop/JP/UTFPR/2022-1/APO/calculadora/cmake-build-debug/CMakeFiles/rebuild_cache.dir

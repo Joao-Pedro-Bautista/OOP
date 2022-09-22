@@ -1,9 +1,9 @@
 #include "DisplayJoaoPedro.hpp"
-#include "console.hpp"
+#include "console.cpp"
 #include <iostream>
 #include <cstdio>
 
-Console console;
+Console cons;
 
 void DisplayJoaoPedro::addDigit(Digit digit){
         switch (digit) {
@@ -40,8 +40,8 @@ void DisplayJoaoPedro::clear(){console.clear_screen();}
 void DisplayJoaoPedro::addControl(Control cont){
 
         switch (cont){
-            case CLEAR: console.clear_screen(); break;
-            case RESET: console.clear_screen(); break;
+            case CLEAR: cons.clear_screen(); break;
+            case RESET: cons.clear_screen(); break;
             default: break;
         }
 

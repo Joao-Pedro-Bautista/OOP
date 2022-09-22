@@ -3,11 +3,11 @@
 #include <string>
 #include <stdio.h>
 #include "calculator.hpp"
-#include "CPUJoaoPedro.hpp"
-#include "DisplayJoaoPedro.hpp"
+#include "CPUJoaoPedro.cpp"
+#include "DisplayJoaoPedro.cpp"
 
 void testCpu(CPU& cpu){
-    cout << "Testing CPU...\n";
+    std::cout << "Testing CPU...\n";
     cpu.receiveControl(ON_CLEAR_ERROR);
     cpu.receiveDigit(ONE);
     cpu.receiveDigit(TWO);

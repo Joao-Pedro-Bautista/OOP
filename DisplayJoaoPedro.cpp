@@ -1,5 +1,5 @@
 #include "DisplayJoaoPedro.hpp"
-#include "console.cpp"
+#include "console.hpp"
 #include <iostream>
 #include <cstdio>
 
@@ -36,7 +36,7 @@ void DisplayJoaoPedro::addOps(Ops operador){
         }
 
     };
-void DisplayJoaoPedro::clear(){console.clear_screen();}
+void DisplayJoaoPedro::clear(){cons.clear_screen();}
 void DisplayJoaoPedro::addControl(Control cont){
 
         switch (cont){

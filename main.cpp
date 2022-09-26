@@ -3,8 +3,8 @@
 #include <string>
 #include <stdio.h>
 #include "calculator.hpp"
-#include "CPUJoaoPedro.cpp"
-#include "DisplayJoaoPedro.cpp"
+#include "CPUJoaoPedro.hpp"
+#include "DisplayJoaoPedro.hpp"
 
 void testCpu(CPU& cpu){
     std::cout << "Testing CPU...\n";
@@ -46,12 +46,12 @@ int main (){
     c1.setDisplay(d1);
 
 
-//    d1.addDigit(ONE);
-//    d1.addDigit(ZERO);
-//    d1.addOps(PERCENTAGE);
-//    d1.addDigit(ONE);
-//    d1.addDigit(ZERO);
-//    d1.addControl(EQUAL);
+    d1.addDigit(ZERO);
+    d1.addOps(PERCENTAGE);
+    d1.addDigit(ONE);
+    d1.addDigit(ZERO);
+    d1.addOps(EQUAL);
+    d1.addDigit(ONE);
 
 
 

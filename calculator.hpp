@@ -12,7 +12,6 @@ enum Control{CLEAR, RESET, OFF, ON_CLEAR_ERROR, MEMORY_READ_CLEAR, MEMORY_SUBTRA
 
 enum Signal{POSITIVE, NEGATIVE};
 
-Console console;
 
 // *********************************************************************************************************
 

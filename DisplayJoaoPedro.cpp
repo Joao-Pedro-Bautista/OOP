@@ -52,3 +52,8 @@ void DisplayJoaoPedro::setSignal(Signal sinal){
         }
 
     };
+void error(){
+
+    printf("ERROR, VERIFIQUE NOVAMENTE");
+
+}

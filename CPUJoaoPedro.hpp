@@ -6,11 +6,11 @@ class CPUJoaoPedro: public CPU{
 private:
     Display* display;
     Ops operation = NOOP;
-    Digit digitsOperands1[MAX_DIGITS];
-    Digit digitsOperands2[MAX_DIGITS];
-    unsigned char digitsOperant1Count=0;
-    unsigned char digitsOperant2Count=0;
-
+    int digitsOperands1[MAX_DIGITS] = {0,0,0,0,0,0,0,0};
+    int digitsOperands2[MAX_DIGITS] = {0,0,0,0,0,0,0,0};
+    int digit1_count = 0;
+    int digit2_count = 0;
+    int operation_count = 0;
 public:
     void receiveDigit(Digit);
     void receiveOperation(Ops);

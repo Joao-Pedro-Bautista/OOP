@@ -17,12 +17,14 @@ enum Signal{POSITIVE, NEGATIVE};
 
 
 class Display{
+    Digit convertToDigit(int);
 public:
     virtual void addDigit(Digit digit) = 0;
     virtual void addOps(Ops operador)=0;
     virtual void clear()=0;
     virtual void addControl(Control cont)=0;
     virtual void setSignal(Signal sinal)=0;
+    virtual void error()=0;
 };
 class Keyboard;
 class Key{

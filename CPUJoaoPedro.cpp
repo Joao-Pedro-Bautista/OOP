@@ -1,4 +1,7 @@
 #include "CPUJoaoPedro.hpp"
+#include <math.h>
+#include <iostream>
+using namespace std;
 
 void CPUJoaoPedro::receiveDigit(Digit digit)
 {
@@ -93,19 +96,6 @@ void CPUJoaoPedro::receiveDigit(Digit digit)
   }
 }
 
-void CPUJoaoPedro::receiveDigit(Digit digit){
-    //guarda o digito no operando correspondente
-
-    if(this->operation = NOOP) {
-        this->digitsOperands1[this->digit2_count++] = digit;
-    } else {
-        this->digitsOperands2[this->digit2_count++] = digit;
-    }
-
-    this->display->addDigit(digit);
-
-}
-
 void CPUJoaoPedro::receiveOperation(Ops operation){
 
     if (this->operation != NOOP && this->digitsOperands2 > 0)
@@ -118,18 +108,126 @@ void CPUJoaoPedro::receiveOperation(Ops operation){
 
 }
 
-void CPUJoaoPedro::receiveControl(Control control){
+void CPUJoaoPedro::receiveSignal(Signal sig)
+{
+  if (sig == NEGATIVE)
+  {
+    this->signal == sig;
+    this->sinal = -1;
+    cout << "- \n";
+  }
+  if (sig == POSITIVE)
+  {
+    this->signal == sig;
+    this->sinal = 1;
+  }
+}
 
-    switch (control)
+void CPUJoaoPedro::receiveControl(Control control)
+{
+  this->display->addControl(control);
+  // marca a posição do ponto flutuanse (DECIMAL SEPARATOR) e sinaliza aonde deve ser feita convercao de base
+
+  if (control == DEC_SEPARATOR)
+  {
+    if (this->operation_count == 0)
     {
-        case ON_CLEAR_ERROR:
-            this->display->clear();
-            break;
+      this->index_decimal1 = digit1_count - 1;
+      this->flagDec1++;
+    }
+    else
+    {
+      this->index_decimal2 = digit1_count - 1;
+      this->flagDec2++;
+    }
+  }
 
-        default:
-            break;
+  if (control == EQUAL)
+  {
+    float res = 0;
+    // Transforma o numero em decimal por meio de multiplicacao da base 10
+    float number1 = 0;
+    int j = this->digit1_count - 1;
+    if (this->flagDec1 > 0)
+      j = index_decimal1;
+    for (int i = 0; i <= this->digit1_count - 1; i++)
+    {
+      number1 = number1 + this->digitsOperands1[i] * pow(10, j);
+      j--;
+    }
+    number1 *= this->sinal;
+    receiveSignal(POSITIVE);
+
+    float number2 = 0;
+    j = this->digit2_count - 1;
+    if (this->flagDec2 > 0)
+      j = index_decimal2;
+    for (int i = 0; i <= this->digit2_count - 1; i++)
+    {
+      number2 = number2 + this->digitsOperands2[i] * pow(10, j);
+      j--;
+    }
+    number2 *= this->sinal;
+    receiveSignal(POSITIVE);
+
+    if (this->operation == ADD)
+    {
+      res = number1 + number2;
     }
 
+    if (this->operation == SUB)
+    {
+      res = number1 - number2;
+    }
+
+    if (this->operation == DIV)
+    {
+      res = number1 / number2;
+    }
+
+    if (this->operation == MULT)
+    {
+      res = number1 * number2;
+    }
+
+    if (this->operation == PERCENTAGE)
+    {
+      res = (number1 / 100) * number2;
+    }
+
+    if (this->operation == SQRT)
+    {
+      res = sqrt(number1);
+    }
+
+    this->operation_count = 0;
+    this->digit1_count = 0;
+    this->digit2_count = 0;
+
+    // imprimi o resultado
+    cout << res;
+    // guarda resultado num temporario
+    this->result = res;
+  }
+
+  if (control == CLEAR)
+  {
+    this->operation_count = 0;
+    this->digit1_count = -1;
+    this->digit2_count = -1;
+    this->index_decimal1 = 0;
+    this->index_decimal2 = 0;
+    this->result = 0;
+  }
+
+  if (control == RESET)
+  {
+    this->operation_count = 0;
+    this->digit1_count = -1;
+    this->digit2_count = -1;
+    this->result = 0;
+    receiveSignal(POSITIVE);
+  }
 }
 
 void CPUJoaoPedro::setDisplay(Display& display){

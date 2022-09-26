@@ -16,7 +16,7 @@ void testCpu(CPU& cpu){
     cpu.receiveDigit(FOUR);
     cpu.receiveDigit(FIVE);
     cpu.receiveDigit(SIX);
-    cpu.receiveOperation(EQUAL);
+    cpu.receiveControl(EQUAL);
 }
 
 void testDisplay(Display& display){
@@ -45,13 +45,14 @@ int main (){
     /* Fase de construção/ligação */
     c1.setDisplay(d1);
 
-
+    d1.addDigit(ONE);
     d1.addDigit(ZERO);
     d1.addOps(PERCENTAGE);
     d1.addDigit(ONE);
     d1.addDigit(ZERO);
-    d1.addOps(EQUAL);
-    d1.addDigit(ONE);
+    d1.addControl(EQUAL);
+    
+
 
 
 

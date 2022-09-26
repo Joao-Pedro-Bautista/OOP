@@ -29,8 +29,7 @@ void DisplayJoaoPedro::addOps(Ops operador){
             case DIV: printf("/\n"); break;
             case MULT: printf("*\n"); break;
             case SQRT: printf("RAIZ\n"); break;
-            case PERCENTAGE: printf("%\n"); break;
-            case EQUAL: printf("=\n"); break;
+            case PERCENTAGE: cout << "%" <<endl;  break;
 
             default: break;
         }
@@ -42,6 +41,7 @@ void DisplayJoaoPedro::addControl(Control cont){
         switch (cont){
             case CLEAR: cons.clear_screen(); break;
             case RESET: cons.clear_screen(); break;
+            case EQUAL: printf("=\n"); break;
             default: break;
         }
 
@@ -52,7 +52,7 @@ void DisplayJoaoPedro::setSignal(Signal sinal){
         }
 
     };
-void error(){
+void DisplayJoaoPedro::error(){
 
     printf("ERROR, VERIFIQUE NOVAMENTE");
 

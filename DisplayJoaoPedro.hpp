@@ -11,5 +11,6 @@ class DisplayJoaoPedro:public Display {
         void addControl(Control cont);
         void setSignal(Signal signal);
         void error();
+        void showResult();
 
 };

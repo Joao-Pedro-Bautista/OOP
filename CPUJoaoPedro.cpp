@@ -98,14 +98,17 @@ void CPUJoaoPedro::receiveDigit(Digit digit)
 
 void CPUJoaoPedro::receiveOperation(Ops operation){
 
-    if (this->operation != NOOP && this->digitsOperands2 > 0)
-    {
+    if (this->operation_count > 0)
+  {
+    cout << "MATH ERROR operation is ready";
+  }
 
-    }
-
+  if (this->operation_count== 0)
+  {
     this->operation = operation;
-
-
+    this->operation_count++;
+    cout << "\n";
+  }
 }
 
 void CPUJoaoPedro::receiveSignal(Signal sig)

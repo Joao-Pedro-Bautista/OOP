@@ -1,9 +1,11 @@
 #include "DisplayJoaoPedro.hpp"
 #include "console.hpp"
+#include "CPUJoaoPedro.hpp"
 #include <iostream>
 #include <cstdio>
 
 Console cons;
+CPUJoaoPedro cpu;
 
 void DisplayJoaoPedro::addDigit(Digit digit){
         switch (digit) {
@@ -55,5 +57,11 @@ void DisplayJoaoPedro::setSignal(Signal sinal){
 void DisplayJoaoPedro::error(){
 
     printf("ERROR, VERIFIQUE NOVAMENTE");
+
+}
+
+void DisplayJoaoPedro::showResult(){
+
+    cpu.receiveControl(EQUAL);
 
 }

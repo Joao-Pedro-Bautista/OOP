@@ -33,6 +33,7 @@ void testDisplay(Display& display){
     display.addDigit(FIVE);
     display.addDigit(ZERO);
     display.addDigit(ONE);
+    display.showResult();
 }
 
 
@@ -45,13 +46,14 @@ int main (){
     /* Fase de construção/ligação */
     c1.setDisplay(d1);
 
-    d1.addDigit(ONE);
+    /* d1.addDigit(ONE);
     d1.addDigit(ZERO);
-    d1.addOps(PERCENTAGE);
+    d1.addOps(ADD);
     d1.addDigit(ONE);
     d1.addDigit(ZERO);
     d1.addControl(EQUAL);
-    
+    d1.showResult(); */
+    testDisplay(d1);
 
 
 

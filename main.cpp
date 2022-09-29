@@ -51,10 +51,20 @@ int main (){
     d1.addOps(ADD);
     d1.addDigit(ONE);
     d1.addDigit(ZERO);
-    d1.addControl(EQUAL);
     d1.showResult(); */
-    testDisplay(d1);
 
+    c1.receiveDigit(ONE);
+    c1.receiveDigit(TWO);
+    c1.receiveDigit(THREE);
+    c1.receiveControl(DEC_SEPARATOR);
+    c1.receiveDigit(FOUR);
+    c1.receiveOperation(ADD);
+    c1.receiveDigit(FIVE);
+    c1.receiveDigit(SIX);
+    c1.receiveDigit(SEVEN);
+    c1.receiveControl(DEC_SEPARATOR);
+    c1.receiveDigit(EIGHT);
+    c1.receiveControl(EQUAL);
 
 
 

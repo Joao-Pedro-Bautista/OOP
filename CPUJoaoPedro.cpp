@@ -9,7 +9,6 @@ void CPUJoaoPedro::receiveDigit(Digit digit)
   //  faz a convercao de um DIGIT para um INT e grava os INDEX do vetor de 8 digitos da caulculadora
   if (this->operation_count == 0)
   {
-    // cout<<"entrou";
     switch (digit)
     {
 
@@ -148,11 +147,18 @@ void CPUJoaoPedro::receiveControl(Control control)
   if (control == EQUAL)
   {
     float res = 0;
-    // Transforma o numero em decimal por meio de multiplicacao da base 10
     float number1 = 0;
     int j = this->digit1_count - 1;
     if (this->flagDec1 > 0)
       j = index_decimal1;
+    /**
+     * Computes the first operand of the operation.
+     *
+     * @param digit1_count The number of digits in the first operand.
+     * @param digitsOperands1 The digits of the first operand.
+     *
+     * @returns The first operand of the operation.
+     */
     for (int i = 0; i <= this->digit1_count - 1; i++)
     {
       number1 = number1 + this->digitsOperands1[i] * pow(10, j);

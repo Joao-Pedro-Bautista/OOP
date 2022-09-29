@@ -17,12 +17,12 @@ private:
     int digit1_count = 0;
     int digit2_count = 0;
     int operation_count = 0;
-    float result = 0;
+
 public:
     void receiveDigit(Digit);
     void receiveOperation(Ops);
     void receiveControl(Control);
     void setDisplay(Display&);
     void receiveSignal(Signal);
-
+    float result = 0;
 };

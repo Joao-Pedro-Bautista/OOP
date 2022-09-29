@@ -62,6 +62,6 @@ void DisplayJoaoPedro::error(){
 
 void DisplayJoaoPedro::showResult(){
 
-    cpu.receiveControl(EQUAL);
+    cout << cpu.result;
 
 }

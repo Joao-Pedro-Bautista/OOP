@@ -32,16 +32,22 @@ class Key{
     public:
         virtual void press() = 0;
         virtual void setKeyboard(Keyboard&) = 0;
+        virtual char getSymbol()=0;
 };
 
 class Key;
 class CPU;
 class Keyboard{
+private:
+    CPU* cpu;
 
 public:
     virtual void receiveDigit(Digit) = 0;
-    virtual void findKey(char) = 0;
+    virtual void receiveOperation(Ops) = 0;
+    virtual void receiveControl(Control) = 0;
+    virtual Key& findKey(char) = 0;
     virtual void setCpu(CPU&) = 0;
+    virtual void addKey(Key& key)=0;
 
 };
 
@@ -51,19 +57,5 @@ public:
     virtual void receiveOperation(Ops) = 0;
     virtual void receiveControl(Control) = 0;
     virtual void setDisplay(Display&) = 0;
-
-};
-
-class Calculator {
-
-    Key* key;
-    Keyboard* kb;
-    CPU* cpu;
-    Display* disp;
-public:
-    void setDisplay();
-    void setKey();
-    void setCPU();
-    void setKeyboard();
 
 };

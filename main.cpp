@@ -1,10 +1,9 @@
 #include <iostream>
-#include <stdlib.h>
-#include <string>
-#include <stdio.h>
 #include "calculator.hpp"
 #include "CPUJoaoPedro.hpp"
 #include "DisplayJoaoPedro.hpp"
+#include "KeyboardJoaoPedro.hpp"
+#include "KeyJoaoPedro.hpp"
 
 void testCpu(CPU& cpu){
     std::cout << "Testing CPU...\n";
@@ -46,25 +45,25 @@ int main (){
     /* Fase de construção/ligação */
     c1.setDisplay(d1);
 
-    /* d1.addDigit(ONE);
+     d1.addDigit(ONE);
     d1.addDigit(ZERO);
     d1.addOps(ADD);
     d1.addDigit(ONE);
     d1.addDigit(ZERO);
-    d1.showResult(); */
+    d1.showResult(); 
 
-    c1.receiveDigit(ONE);
-    c1.receiveDigit(TWO);
-    c1.receiveDigit(THREE);
-    c1.receiveControl(DEC_SEPARATOR);
-    c1.receiveDigit(FOUR);
-    c1.receiveOperation(ADD);
-    c1.receiveDigit(FIVE);
-    c1.receiveDigit(SIX);
-    c1.receiveDigit(SEVEN);
-    c1.receiveControl(DEC_SEPARATOR);
-    c1.receiveDigit(EIGHT);
-    c1.receiveControl(EQUAL);
+    // c1.receiveDigit(ONE);
+    // c1.receiveDigit(TWO);
+    // c1.receiveDigit(THREE);
+    // // c1.receiveControl(DEC_SEPARATOR);
+    // c1.receiveDigit(FOUR);
+    // c1.receiveOperation(ADD);
+    // c1.receiveDigit(FIVE);
+    // c1.receiveDigit(SIX);
+    // c1.receiveDigit(SEVEN);
+    // // c1.receiveControl(DEC_SEPARATOR);
+    // c1.receiveDigit(EIGHT);
+    // c1.receiveControl(EQUAL);
 
 
 

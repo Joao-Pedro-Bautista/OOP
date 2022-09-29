@@ -234,6 +234,8 @@ void CPUJoaoPedro::receiveControl(Control control)
     this->operation_count = 0;
     this->digit1_count = -1;
     this->digit2_count = -1;
+    this->index_decimal1 = 0;
+    this->index_decimal2 = 0;
     this->result = 0;
     receiveSignal(POSITIVE);
   }
